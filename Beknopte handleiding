@@ -1,0 +1,16 @@
+Volgende programma's heb je nodig. De extra programma's zitten in de container en heb je dus niet nodig preïnstalled
+  -Docker
+  -Curl
+  -Visual studio code
+  -Buildx
+
+sudo apt install docker
+sudo apt install curl
+sudo snap install code --classic
+
+Buildx installeren:
+  export BUILDX_VERSION=$(curl -s https://api.github.com/repos/docker/buildx/releases/latest | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
+  curl -Lo buildx https://github.com/docker/buildx/releases/download/$BUILDX_VERSION/buildx-$BUILDX_VERSION.linux-amd64
+  chmod +x buildx
+  mkdir -p ~/.docker/cli-plugins
+  mv buildx ~/.docker/cli-plugins/docker-buildx
